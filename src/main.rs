@@ -1,4 +1,4 @@
-use mytree::{fileSearch,treePrinter};
+use tree::{fileSearch,treePrinter};
 use std::path::PathBuf;
 use std::env;
 fn main() {
