@@ -25,13 +25,9 @@ impl Iterator for FileContainer {
                 for (i,item) in top.file_path.read_dir().unwrap().enumerate() {
                     let mut file_item = FileItem::new(item.unwrap().path());
                     file_item.level = top.level + 1;
-                    let mut not_last = top.not_last.clone();
-                    if !top.is_last {
-                        not_last.push(top.level);
-                    }
-                    file_item.not_last = not_last;
-                    if i == 0 {
-                        file_item.is_last = true;    
+                    file_item.not_last = top.not_last.clone();
+                    if i != 0 {
+                        file_item.not_last.push(file_item.level); 
                     }
                     self.stack.push(file_item);
                 }

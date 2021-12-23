@@ -6,7 +6,6 @@ pub struct FileItem {
     pub file_path: PathBuf,        // 文件/目录路径
     pub level: i32,                // 文件相对于查询目录的层级深度
     pub not_last: Vec<i32>,        // 目录中不是最后一个的level集合
-    pub is_last: bool,             // 文件/目录是否是同级中最后一个
 }
 
 impl FileItem {
@@ -19,7 +18,6 @@ impl FileItem {
             file_path,
             level: 0,
             not_last: Vec::new(),
-            is_last: false,
         }
     }
 }
